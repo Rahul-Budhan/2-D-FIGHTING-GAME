@@ -74,7 +74,7 @@ const player = new Fighter({
             imageSrc: './img/SamuraiMack/Take hit - white silhouette.png',
             framesMax: 4
         },
-        dead: {
+        death: {
             imageSrc:'./img/SamuraiMack/Death.png',
             framesMax:6
         }
@@ -139,7 +139,7 @@ const enemy = new Fighter({
             imageSrc: './img/kenji/Take hit.png',
             framesMax: 3
         },
-        dead: {
+        death: {
             imageSrc:'./img/kenji/Death.png',
             framesMax: 7
         }
@@ -253,6 +253,7 @@ function animate(){
     if (enemy.isAttacking && enemy.framesCurrent ===2){
         enemy.isAttacking = false
     }
+
     //End the Game
     if(enemy.health <= 0 || player.health <= 0 ){
         determineWinner({player, enemy, timerId})
