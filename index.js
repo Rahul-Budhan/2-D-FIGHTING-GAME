@@ -108,7 +108,7 @@ const enemy = new Fighter({
     scale:2.5,
     offset: {
         x:215,
-        y:157
+        y:172
     }
     ,sprites: {
         idle: {
@@ -185,6 +185,8 @@ function animate(){
     c.fillRect(0,0,canvas.width,canvas.height)
     background.update()
     shop.update()
+    c.fillStyle='rgba(255,255,255,0.11)'
+    c.fillRect(0,0,canvas.width, canvas.height)
     player.update()
     enemy.update()
 
@@ -231,7 +233,9 @@ function animate(){
         }) &&   player.isAttacking && player.framesCurrent === 4){
             enemy.takeHit()    
             player.isAttacking= false
-            document.querySelector('#enemyHealth').style.width = enemy.health + '%'
+            gsap.to('#enemyHealth',{
+                width:enemy.health +'%'
+            })
     }
 
     //if player misses
@@ -245,8 +249,9 @@ function animate(){
         }) &&   enemy.isAttacking && enemy.framesCurrent ===2){
             player.takeHit()
         enemy.isAttacking= false
-        player.health -=20
-        document.querySelector('#playerHealth').style.width = player.health + '%'
+        gsap.to('#playerHealth',{
+            width:player.health +'%'
+        })
     }
 
     //if enemy misses
