@@ -1,3 +1,5 @@
+<span style="color:green;font-weight:700;font-size:20px">
+
 # 2D Fighting Game
 This is a 2D fighting game created using JavaScript. The game allows two players to battle against each other in a side-scrolling environment.
 
@@ -25,3 +27,4 @@ Creating an AI opponent for single-player mode
 
 ### Credits
 This game was created by RAHUL BUDHAN. Special thanks to [anyone who contributed to the project or provided resources].
+</span>
