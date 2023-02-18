@@ -264,6 +264,7 @@ function animate(){
 animate()
 
 window.addEventListener('keydown',(event)=>{
+    if (!player.dead){
     switch(event.key){
         case 'd':
             keys.d.pressed = true
@@ -276,6 +277,12 @@ window.addEventListener('keydown',(event)=>{
         case 'w':
             player.velocity.y = -10
             break
+        case ' ':
+            player.attack()
+            break
+    }}
+    if (!enemy.dead){
+    switch(event.key){
         case 'ArrowRight':
             keys.ArrowRight.pressed = true
             enemy.lastkey = 'ArrowRight'
@@ -287,13 +294,10 @@ window.addEventListener('keydown',(event)=>{
         case 'ArrowUp':
             enemy.velocity.y = -10
             break 
-        case ' ':
-            player.attack()
-            break
         case 'ArrowDown':
             enemy.attack()
             break
-
+}
     }
 
 })
